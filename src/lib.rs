@@ -94,6 +94,17 @@ pub mod strings{
     }
 }
 
+pub mod numbers {
+    pub fn max<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
+        let mut max_num = &list[0];
+        for item in list {
+            if item > max_num {
+                max_num = item;
+            }
+        }
+        max_num
+    }
+}
 
 #[cfg(test)]
 mod random_special {
