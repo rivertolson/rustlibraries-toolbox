@@ -1,3 +1,27 @@
+//! # toolbox
+//! 
+//! This crate is a group of useful code snippets
+//! 
+//! ## Functions
+//! - random_special()
+//! 
+//! ## Examples
+//! ### random_special
+//! Generates a random special character from the following:
+//! ~`!@#$%^&*()_+-=[{]}\|;:'",<.>/?
+//! 
+//! ``` rust
+//! use toolbox::{random_special};
+//! 
+//! fn main() {
+//!     let my_char: char = random_special();
+//!     println!("'{}'", my_char);
+//! }
+//! ```
+//! 
+//! ## Modules
+//! - `fastrand`
+
 use fastrand;
 
 const SPECIAL_CHARACTERS: [char;32] = [
@@ -35,6 +59,24 @@ const SPECIAL_CHARACTERS: [char;32] = [
     '?',
 ];
 
+/// Generates a random special character from the following:
+/// ~`!@#$%^&*()_+-=[{]}\|;:'",<.>/?
+/// 
+/// # Arguments
+/// None
+/// 
+/// # Returns
+/// char
+/// 
+/// # Examples
+/// ``` rust
+/// use toolbox::{random_special};
+/// 
+/// fn main() {
+///     let my_char: char = random_special();
+///     println!("'{}'", my_char);
+/// }
+/// ```
 pub fn random_special() -> char {
     let ran_num: u8 = fastrand::u8(0..32);
     SPECIAL_CHARACTERS[ran_num as usize]
